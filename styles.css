@@ -1,113 +1,133 @@
-<style>
-  :root {
-    --primary-color: #00695c;
-  }
-  /* Force the app to fill the entire iframe */
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh; /* Use 100% of the viewport height */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    /* YOUR EXACT REQUIREMENT: Large, readable font size */
-    font-size: 20px;
-    background-color: #ffffff;
-    color: #202124;
-  }
-  /* Remove any outer container that might add margins */
-  #onboarding-section {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Style each question block to be clear and have space */
-  .form-header, .disclaimer, .form-group {
-    padding: 24px 5vw; /* Vertical padding + 5% of screen width horizontally */
-    border-bottom: 1px solid #e0e0e0;
-  }
-  .form-header {
-    border-top: 10px solid var(--primary-color);
-  }
-  
-  /* Large, readable inputs */
-  label { font-size: 1.1em; font-weight: 500; margin-bottom: 15px; display: block; }
-  input[type="text"], input[type="email"], input[type="number"], select {
-    width: 100%;
-    padding: 16px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    -webkit-appearance: none;
-  }
-
-  /* Large, tappable checkboxes */
-  .checkbox-group { display: flex; flex-direction: column; gap: 20px; }
-  .checkbox-option { display: flex; align-items: center; }
-  .checkbox-option input[type="checkbox"] {
-    width: 25px; height: 25px; margin-right: 20px; accent-color: var(--primary-color);
-  }
-
-  /* Large, full-width button */
-  button {
-    width: 100%; padding: 16px; font-size: 1.1em; font-weight: bold;
-    color: white; background-color: var(--primary-color); border: none; border-radius: 8px;
-  }
-  
-  /* Media query to make it look sane on a desktop */
-  @media (min-width: 700px) {
-    body { background-color: #f0f2f5; font-size: 16px; }
-    #onboarding-section {
-      max-width: 640px; margin: 40px auto;
-      border: 1px solid #dadce0; border-radius: 8px;
-      height: auto; /* Let height be automatic on desktop */
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-  }
-</style>
-
-/* (The one starting with :root { --primary-color: #00695c; } and ending with the @media query) */
 :root {
-    --primary-color: #00695c;
+  /* === NEW: Defining our color palette === */
+  --background-color: #4a4a4a; /* A medium-dark grey */
+  --card-background: #5c5c5c; /* A slightly lighter grey for cards */
+  --text-color: #f0f0f0; /* Off-black for better readability than pure black */
+  --border-color: #7a7a7a;
+  --primary-green: #2e8b57; /* A nice "sea green" */
+  --primary-green-hover: #256d44; /* A darker green for hover */
+  --font-main: 'Special Elite', monospace; /* The new font */
 }
+
+/* Base styles for the page */
 html, body {
-    margin: 0; padding: 0; width: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    background-color: #ffffff;
-    color: #202124;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--font-main); /* === Applying the new font globally === */
+  font-size: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
-#onboarding-section, #program-section { width: 100%; }
-.form-header, .disclaimer, .form-group { padding: 30px 5vw; border-bottom: 1px solid #e0e0e0; }
-.form-header { border-top: 10px solid var(--primary-color); }
-.disclaimer { background-color: #fff3e0; }
-.submit-group { background-color: #f7f9f9; border-bottom: none; }
-h1 { font-size: 1.4em; line-height: 1.3; }
-label { display: block; margin-bottom: 15px; font-size: 1.1em; font-weight: 500; }
-input[type="text"], input[type="email"], input[type="number"], select {
-    width: 100%; padding: 18px 15px; font-size: 1em; border: 1px solid #ccc;
-    border-radius: 8px; -webkit-appearance: none;
+
+#onboarding-section, #program-section {
+  width: 100%;
 }
+
+/* Styling for each block of content */
+.form-header, .disclaimer, .form-group {
+  padding: 30px 5vw;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-header {
+  border-top: 10px solid var(--primary-green);
+  text-align: center;
+}
+.disclaimer { 
+  background-color: #6a4f4f; /* A muted reddish-grey for warnings */
+  border-left: 5px solid #ff6347; /* Tomato red */
+}
+.submit-group {
+  background-color: var(--background-color);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: none;
+}
+h1 { 
+  font-size: 1.6em;
+  line-height: 1.3;
+}
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  font-weight: normal; /* The font is bold enough on its own */
+}
+
+/* Styling for input fields */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 18px 15px;
+  font-size: 1em;
+  font-family: var(--font-main); /* Ensure inputs use the new font */
+  border-radius: 6px;
+  background-color: #3d3d3d;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  -webkit-appearance: none;
+}
+
+/* Checkbox styling */
 .checkbox-group { display: flex; flex-direction: column; gap: 20px; }
 .checkbox-option { display: flex; align-items: center; }
 .checkbox-option input[type="checkbox"] {
-    width: 28px; height: 28px; margin-right: 20px; accent-color: var(--primary-color);
+  width: 28px;
+  height: 28px;
+  margin-right: 20px;
+  accent-color: var(--primary-green); /* Use our green for the checkmark */
 }
+
+/* === NEW: The prominent green button style === */
 button {
-    width: 100%; background-color: var(--primary-color); color: white;
-    padding: 18px; border: none; border-radius: 8px;
-    font-size: 1.1em; font-weight: bold;
+  width: 100%;
+  background-color: var(--primary-green);
+  color: #ffffff; /* White text on the green button */
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 1.2em;
+  font-weight: bold; /* Make the button text bold */
+  text-transform: uppercase; /* Make it stand out more */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
+button:hover {
+  background-color: var(--primary-green-hover);
+}
+
+/* Styles for the generated program display */
 #program-section {
-    padding: 30px 5vw;
+    padding: 0;
 }
 .pillar {
-    margin-bottom: 30px;
+    background-color: var(--card-background);
+    padding: 30px 5vw;
+    border-bottom: 1px solid var(--border-color);
 }
+.pillar h3 { margin-top: 0; }
+a { color: var(--primary-green); }
+
+/* Desktop media query */
 @media (min-width: 700px) {
-    body { background-color: #f0f2f5; font-size: 16px; }
-    #onboarding-section, #program-section {
-        max-width: 640px; margin: 40px auto; border: 1px solid #dadce0;
-        border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+  body { font-size: 18px; }
+  #onboarding-section, #program-section {
+    max-width: 640px;
+    margin: 40px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
 }
-.loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.8);display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:1000}.loader-spinner{border:8px solid #f3f3f3;border-top:8px solid var(--primary-color);border-radius:50%;width:60px;height:60px;animation:spin 1.5s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/* Loader styles */
+.loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000}
+.loader-spinner{width:60px;height:60px;border:8px solid #555;border-top-color:var(--primary-green);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
