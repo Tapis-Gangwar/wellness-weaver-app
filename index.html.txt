@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Weaver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="onboarding-section">
+      <div class="form-header">
+        <h1>Wellness Weaver</h1>
+        <p>Your personalized wellness program.</p>
+      </div>
+      <div class="disclaimer">
+        <strong>Important:</strong> This program is for informational purposes only. Consult a physician before starting any new plan.
+      </div>
+      <form id="user-info-form">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option>Female</option><option>Male</option><option>Prefer not to say</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" name="height" required>
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
+        <div class="form-group">
+            <label for="primaryGoal">Primary Goal</label>
+            <select id="primaryGoal" name="primaryGoal">
+              <option>Weight Loss</option><option>Improve Flexibility</option><option>Muscle Gain</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Existing Medical Conditions</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option"><input type="checkbox" name="medicalConditions" value="High Blood Pressure">High Blood Pressure</label>
+              <label class="checkbox-option"><input type="checkbox" name="medicalConditions" value="Knee Pain">Knee Pain</label>
+              <label class="checkbox-option"><input type="checkbox" name="medicalConditions" value="Low Back Strain">Low Back Strain</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Recent Blood Test Highlights</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option"><input type="checkbox" name="bloodTestHighlights" value="High Cholesterol">High Cholesterol</label>
+              <label class="checkbox-option"><input type="checkbox" name="bloodTestHighlights" value="Low Iron">Low Iron</label>
+            </div>
+        </div>
+        <div class="form-group submit-group">
+            <button type="submit">Generate My Program</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="program-section" style="display: none;">
+      <!-- Generated program will be displayed here -->
+    </div>
+
+    <div id="loader" class="loader-overlay" style="display: none;">
+        <div class="loader-spinner"></div>
+        <p>Weaving your personalized plan...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
